@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent
       ],
     }).compileComponents();
   });
@@ -26,10 +28,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('login-demo');
   });
 
-  it('should render title', () => {
+  it('should render login-component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('login-demo app is running!');
+    expect(compiled.querySelector('.flexContainer .box h2#loginheader').textContent).toContain('LOGIN');
   });
 });

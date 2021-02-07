@@ -1,4 +1,33 @@
-<div class="box">
-    <h2 id="loginheader">LOGIN</h2>
-    <p>login works!</p>
-</div>
+<mat-card class='login-box'>
+    <mat-card-header>
+        <mat-card-title id="login-header-text">Login Demo for Angular/Go</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="login-form" [formGroup]="loginForm" (submit)="submit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your username</mat-label>
+                <input
+                    class="input"
+                    matInput
+                    placeholder="some@one.com"
+                    formControlName="username"
+                    required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your password</mat-label>
+                <input
+                    class="input"
+                    matInput
+                    type="password"
+                    formControlName="password"
+                    required>
+            </mat-form-field>
+            <div>
+                <button
+                    class="btn"
+                    [disabled]="!loginForm.valid"
+                    mat-stroked-button>Login</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

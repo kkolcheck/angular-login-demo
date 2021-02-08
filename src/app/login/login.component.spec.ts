@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../services/user.service';
-
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -43,4 +42,6 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // Will come back and add tests if I have time
 });

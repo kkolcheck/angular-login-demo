@@ -19,6 +19,7 @@ export class UserService {
     return parseInt(now);
   }
 
+  // Could create a class for the payload to ensure payload is in the correct format
   postUserLogin(payload: any): Observable<any> {
     const url = `${environment.goBackendBaseUrl}/user/login`;
     const headers = new HttpHeaders({'Content-Type': 'application/json'});

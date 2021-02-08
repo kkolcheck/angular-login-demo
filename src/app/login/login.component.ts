@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       An HttpClient subscription is a `finite subscription` and will automatically unsubscribe when the call
       completes. There is an argument that you should still unsubscribe because if you navigate away
       while awaiting a response, it will cancel the subscribe block (in our case, preventing the redirect).
-      I have included the unsubscribe for the demo, but it is not necessary.
     */
     this.loginHttpSubscription = this.userSvc.postUserLogin(payload).subscribe(resp => {
         window.location.href = 'http://onecause.com';

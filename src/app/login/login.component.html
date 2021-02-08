@@ -1,9 +1,11 @@
 <mat-card class='login-box'>
+    <!-- CSS could use some more tweaking to take better advantage of the space -->
     <mat-card-header>
         <mat-card-title id="login-header-text">Login Demo for Angular/Go</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <form class="login-form" [formGroup]="loginForm" (submit)="submit()">
+            <!-- Specific error validation messages could be displayed -->
             <mat-form-field appearance="outline">
                 <mat-label>Enter your username</mat-label>
                 <input
@@ -14,6 +16,7 @@
                     required>
             </mat-form-field>
             <mat-form-field appearance="outline">
+                <!-- Possible enhancement: show/hide password toggle -->
                 <mat-label>Enter your password</mat-label>
                 <input
                     class="input"

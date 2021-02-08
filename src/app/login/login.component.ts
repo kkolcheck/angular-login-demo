@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 // import { ToastrService } from ''
@@ -17,7 +16,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private userSvc: UserService,
     private formBuilder:FormBuilder,
-    private router: Router,
     private toastr: ToastrService
     ) {
     this.loginForm = this.formBuilder.group({
@@ -36,8 +34,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   submit(): void {
     const payload = {
-      username: this.loginForm.get('username'),
-      password: this.loginForm.get('password'),
+      username: this.loginForm.get('username')!.value,
+      password: this.loginForm.get('password')!.value,
       token: this.userSvc.generateToken()
     }
     /*
@@ -47,7 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       I have included the unsubscribe for the demo, but it is not necessary.
     */
     this.loginHttpSubscription = this.userSvc.postUserLogin(payload).subscribe(resp => {
-        this.router.navigateByUrl('http://onecause.com');
+        window.location.href = 'http://onecause.com';
       }, error => {
         console.error(error);
         this.toastr.error('Your username and/or password was incorrect. Please try again.');

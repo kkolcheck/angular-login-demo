@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import * as dayjs from 'dayjs';
 
@@ -15,12 +15,14 @@ export class UserService {
     // set timezone to ensure consistency between generation and validation
     const now: string = dayjs(
       new Date().toLocaleString('en-US', {timeZone: 'America/New_York'})
-    ).format('hhmm');
+    ).format('HHmm');
     return parseInt(now);
   }
 
   postUserLogin(payload: any): Observable<any> {
     const url = `${environment.goBackendBaseUrl}/user/login`;
-    return this.http.post(url, payload);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    const options = { headers };
+    return this.http.post(url, payload, options);
   }
 }

@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 
+  navigateToUrl(url: string): void {
+    window.location.href = url;
+  }
+
   submit(): void {
     const payload = {
       username: this.loginForm.get('username')!.value,
@@ -44,7 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       while awaiting a response, it will cancel the subscribe block (in our case, preventing the redirect).
     */
     this.loginHttpSubscription = this.userSvc.postUserLogin(payload).subscribe(resp => {
-        window.location.href = 'http://onecause.com';
+      this.navigateToUrl('http://onecause.com');
       }, error => {
         console.error(error);
         this.toastr.error('Your username and/or password was incorrect. Please try again.');

@@ -2,8 +2,9 @@
 
 Angular login page that makes a POST call to validate user credentials before redirecting.
 
-run: npm start
-test: npm test
+* run: npm start
+* test: npm test
+
 # Potential Enhancements
 - [ ] More unit tests
 - [ ] Improve appearance

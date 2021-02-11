@@ -1,6 +1,9 @@
-.flexContainer {
+.wrapper {
     display: flex;
-    min-height: 100vh; // height of the browser viewport
     justify-content: center;
     align-items: center;
+}
+
+.viewport-height {
+    min-height: 100vh; // height of the browser viewport
 }

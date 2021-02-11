@@ -1,10 +1,42 @@
+.btn {
+    padding: 0 100px;
+}
+
+.input {
+    width: 345px;
+}
 
 .login-box {
+    padding: 16px;
     width: 100vw;
-    max-width: 400px;
-    height: 400px;
+    max-width: 368px;   // 368px + 32px of padding = 400px width
+    height: 368px;      // 368px + 32px of padding = 400px height
 }
 
 .login-form {
     margin: 15px;
+}
+
+#login-header {
+    margin-bottom: 10px;
+}
+
+.login-box .wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+    height: 368px;
+}
+
+@media screen and (max-width: 400px) {
+    .input {
+        max-width: 100vw;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .btn {
+        padding: 0 15px
+    }
 }
